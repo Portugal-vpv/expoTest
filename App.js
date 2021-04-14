@@ -9,7 +9,9 @@ import { useFonts } from 'expo-font';
 import { AppLoading } from 'expo-app-loading';
 
 import  Header  from './app/views/Header';
+import Footer from './app/views/Footer';
 import Homepage from './app/views/Home';
+import { navigationRef } from './app/navigation/RootNavigation';
 
 const Stack = createStackNavigator();
  
@@ -25,6 +27,7 @@ const Stack = createStackNavigator();
   return (
    <NavigationContainer 
     style={{paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0}}
+    ref={navigationRef}
    >
      <Stack.Navigator 
         initialRouteName="Globomantics"
@@ -39,6 +42,7 @@ const Stack = createStackNavigator();
        />
       
      </Stack.Navigator>
+     <Footer/>
    </NavigationContainer>
     
   );
